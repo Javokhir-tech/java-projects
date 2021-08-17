@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Import</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  	<style>
+* {
+  box-sizing: border-box;
+}
+
+.row1 {
+  display: flex;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+  </head>
+  <body>
+<div class="container py-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <h1>File Upload Status</h1>
+            <!--display error if any-->
+            <div class="alert alert-danger" role="alert" th:if="${!status}">
+                <strong>Error:</strong>
+                <span th:text="${message}"></span>
+            </div>
+         </div>
+    </div>
+</div>
+            <!--display records list with parent id-->
+<div class="container">
+<div class="row1">
+	
+	 <table  th:if="${status}">
+        <thead>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Date</th>
+            </tr>
+       </thead>
+       <tbody>
+         <tr th:each="record: ${records}">
+            <td th:text="${record.id}"></td>
+               <td th:text="${record.name}"></td>
+                 <td th:text="${record.date}"></td>
+        </tr>
+                	<!--  <td th:text="${record.id}"></td>   <span th:text="${records}" />  -->
+       </tbody>
+    </table>
+	<table>
+       <thead>
+           <th>Parent ID</th>
+       </thead>
+       <tbody>
+           <tr th:each="parent: ${parents}">
+               <td th:text="${parent}"></td>
+           </tr>
+       </tbody>
+     </table>
+</div>
+</div>
+</body>
+</html>
