@@ -22,9 +22,4 @@ public class EmailController {
         emailService.sendEmail(request);
         return ResponseEntity.ok().build();
     }
-//        if (result)
-//            return ResponseEntity.ok("Email Sent Successfully... ");
-//        else
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("email sending failed");
-
 }
