@@ -1,4 +1,4 @@
-package uz.javokhir.sendEmailService.model;
+package uz.javokhir.sendEmailService.model.request;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
